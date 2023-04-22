@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Text-to-Speech</title>
+  </head>
+  <body>
+    <textarea id="text-to-speak" rows="5" cols="50"></textarea>
+    <button id="speak-button">Speak</button>
+
+    <script>
+      const speakButton = document.getElementById("speak-button");
+      const textToSpeak = document.getElementById("text-to-speak");
+
+      // check if speech synthesis is supported in the browser
+      if (!window.speechSynthesis) {
+        alert("Sorry, speech synthesis is not supported in this browser.");
+      }
+
+      // create a new SpeechSynthesisUtterance object
+      const utterance = new SpeechSynthesisUtterance();
+
+      // set the language of the utterance
+      utterance.lang = "en-US";
+
+      // handle the click event on the speak button
+      speakButton.addEventListener("click", () => {
+        // set the text of the utterance
+        utterance.text = textToSpeak.value;
+
+        // speak the utterance
+        window.speechSynthesis.speak(utterance);
+      });
+    </script>
+  </body>
+</html>
