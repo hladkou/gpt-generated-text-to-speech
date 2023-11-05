@@ -1,1 +1,1 @@
-# gpt-generated-text-to-speech
+# gpt_generated_text_to_speech
